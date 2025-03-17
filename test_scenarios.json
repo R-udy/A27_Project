@@ -6,7 +6,7 @@
       "steps": [
         {
           "action": "http_request_get",
-          "url": "http://192.168.190.11:8081/1"
+          "url": "http://192.168.190.15:8080/1"
         },
         {
           "action": "pause",
@@ -42,7 +42,7 @@
       "steps": [
         {
           "action": "http_request_get",
-          "url": "http://192.168.190.25:8080/allumer_eteindre"
+          "url": "http://192.168.190.15:8080/allumer_eteindre"
         },
         {
           "action": "pause",
@@ -50,7 +50,7 @@
         },
         {
           "action": "http_request_get",
-          "url": "http://192.168.190.25:8080/activer_desactiver"
+          "url": "http://192.168.190.15:8080/activer_desactiver"
         }
       ]
     }

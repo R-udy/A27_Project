@@ -21,7 +21,13 @@ class TestGestionnaireScenarios(unittest.TestCase):
         self.assertRegex(requete2['requete'], "4202")
         # Vérifier que la durée de pause entre les deux appels à requeter est de deux secondes, à 0.1 secondes prêt
         self.assertAlmostEqual(requete2['timestamp'] - requete1['timestamp'], 2, delta = 0.1)
-
+    def test_lancer_sequence_success(self):
+        self.assertIsNone(self.gestionnaire_scenarios.lancer_sequence(42))    
+        
+    def test_lancer_sequence_failed(self):
+        with self.assertRaises(ValueError):
+            self.gestionnaire_scenarios.lancer_sequence(15)
+    
 class ClientStub:
     def __init__(self):
         self.t0 = time.time()
@@ -30,3 +36,7 @@ class ClientStub:
         rel_t = time.time() - self.t0
         timestamp_requete = {"timestamp":rel_t, "requete":requete}
         self.requetes_recues.append(timestamp_requete)
+        
+
+if __name__ == "__main__":
+    unittest.main()
