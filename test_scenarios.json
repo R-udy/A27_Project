@@ -1,0 +1,58 @@
+{
+  "scenarios": {
+    "1": {
+      "name": "Activation alarme A27",
+      "description": "Scénario d'activation de l'alarme de la salle A27",
+      "steps": [
+        {
+          "action": "http_request_get",
+          "url": "http://192.168.190.11:8081/1"
+        },
+        {
+          "action": "pause",
+          "duration": 1000
+        },
+        {
+          "action": "http_request_get",
+          "url": "https://api.eedomus.com/set?action=periph.macro&macro=0102&api_user=XXXX&api_secret=XXXX"
+        }
+      ]
+    },
+    "2": {
+      "name": "Désactivation alarme A27",
+      "description": "Scénario de désactivation de l'alarme de la salle A27",
+      "steps": [
+        {
+          "action": "http_request_get",
+          "url": "https://api.eedomus.com/set?action=periph.macro&macro=0201&api_user=XXXX&api_secret=XXXX"
+        },
+        {
+          "action": "pause",
+          "duration": 2000
+        },
+        {
+          "action": "http_request_get",
+          "url": "https://api.eedomus.com/set?action=periph.macro&macro=0201&api_user=XXXX&api_secret=XXXX"
+        }
+      ]
+    },
+    "42": {
+      "name": "Scénario 42",
+      "description": "Description du scénario 42",
+      "steps": [
+        {
+          "action": "http_request_get",
+          "url": "http://192.168.190.25:8080/allumer_eteindre"
+        },
+        {
+          "action": "pause",
+          "duration": 2000
+        },
+        {
+          "action": "http_request_get",
+          "url": "http://192.168.190.25:8080/activer_desactiver"
+        }
+      ]
+    }
+  }
+}
