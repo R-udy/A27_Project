@@ -16,9 +16,9 @@ class TestGestionnaireScenarios(unittest.TestCase):
         requete1 = self.client_stub.requetes_recues[0]
         requete2 = self.client_stub.requetes_recues[1]
         # Vérifier que la première requête contient le texte '4201'
-        self.assertRegex(requete1['requete'], "4201")
+        self.assertRegex(requete1['requete'], "allumer_eteindre")
         # Vérifier que la deuxième requête contient le texte '4202'
-        self.assertRegex(requete2['requete'], "4202")
+        self.assertRegex(requete2['requete'], "activer_desactiver")
         # Vérifier que la durée de pause entre les deux appels à requeter est de deux secondes, à 0.1 secondes prêt
         self.assertAlmostEqual(requete2['timestamp'] - requete1['timestamp'], 2, delta = 0.1)
     def test_lancer_sequence_success(self):
